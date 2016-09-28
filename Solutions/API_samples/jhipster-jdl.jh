@@ -1,0 +1,24 @@
+entity PreferedContact {
+    nameOfChoice String required
+}
+
+entity School {
+    schoolName String required
+}
+
+entity Dormitory {
+    dormName String required
+}
+
+entity Student {
+    fullName String required,
+    emailAddress String required,
+    phoneNumber String required,
+    graduationDate LocalDate
+}
+
+relationship OneToMany {
+    PreferedContact{student} to Student {preferedcontact},
+    School{student} to Student{school},
+    Dormitory{student} to Student {dorm}
+}
